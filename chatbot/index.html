@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .chat-log {
+            height: 300px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .chat-log p {
+            margin: 0 0 10px;
+        }
+
+        .user-message {
+            color: #0a417a;
+            font-weight: bold;
+        }
+
+        .bot-message {
+            color: #444;
+        }
+
+        .input-container {
+            display: flex;
+        }
+
+        .input-container input[type="text"] {
+            flex-grow: 1;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .input-container input[type="submit"] {
+            margin-left: 5px;
+            padding: 5px 10px;
+            background-color: #0a417a;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chatbot Demo</h1>
+
+    <div class="container">
+        <div class="chat-log" id="chat-log"></div>
+        <form id="chat-form">
+            <div class="input-container">
+                <input type="text" id="user-input" />
+                <input type="submit" value="Send" />
+            </div>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#chat-form').on('submit', function(e) {
+                e.preventDefault();
+                var userInput = $('#user-input').val();
+                $('#user-input').val('');
+
+                $('#chat-log').append('<p class="user-message"><strong>You:</strong> ' + userInput + '</p>');
+                scrollToBottom();
+
+                $.ajax({
+                    url: '/api/chat',
+                    method: 'POST',
+                    data: {
+                        user_input: userInput
+                    },
+                    success: function(response) {
+                        $('#chat-log').append('<p class="bot-message"><strong>Bot:</strong> ' + response.response + '</p>');
+                        scrollToBottom();
+
+                        if (response.end) {
+                            $('#chat-form input').prop('disabled', true);
+                        }
+                    }
+                });
+            });
+
+            function scrollToBottom() {
+                $('#chat-log').scrollTop($('#chat-log')[0].scrollHeight);
+            }
+        });
+    </script>
+</body>
+</html>

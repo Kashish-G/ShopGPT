@@ -1,0 +1,62 @@
+[
+  {"tag": "greeting",
+  "patterns": ["Hi", "Hey", "Is anyone there?","Hi there", "Hello", "Hey there", "Howdy", "Hola", "Bonjour", "Konnichiwa", "Guten tag", "Ola"],
+  "responses": ["Hello there. Tell me what are you here to buy?", "Hi there. What brings you here today?", "Hi there. What are you looking for?", "Great to see you. What product is on your mind?", "Hello there. Glad to see you're back. What do you want to buy?"]
+ },
+ {"tag": "morning",
+     "patterns": ["morning"],
+     "responses": ["Good morning. I hope you had a good night's sleep. Which product are you looking for? "]
+ },
+ {"tag": "afternoon",
+     "patterns": ["afternoon"],
+     "responses": ["Good afternoon. What do you want to buy today?"]
+ },
+ {"tag": "evening",
+     "patterns": ["evening"],
+     "responses": ["Good evening. What do you want to buy today"]
+ },
+ {"tag": "night",
+     "patterns": ["night"],
+     "responses": ["Good night. Get some proper sleep", "Good night. Sweet dreams."]
+ },
+ {"tag": "goodbye",
+  "patterns": ["Bye", "See you later", "Goodbye", "Au revoir", "Sayonara", "ok bye", "Bye then", "Fare thee well","later"],
+  "responses": ["See you later.", "Have a nice day.", "Bye! Come back again.", "I'll see you soon."]
+ },
+ {"tag": "thanks",
+  "patterns": ["Thanks", "Thank you", "That's helpful", "Thanks for the help", "Than you very much"],
+  "responses": ["Happy to help!", "Any time!", "My pleasure", "You're most welcome!"]
+ },
+ {"tag": "no-response",
+     "patterns": [""],
+     "responses": ["Sorry, I didn't understand you.", "Please go on.", "Not sure I understand that.", "Please don't hesitate to talk to me."]
+ },
+ {"tag": "neutral-response",
+     "patterns": ["nothing much"],
+     "responses": ["Oh I see. Do you want to talk about something?"]
+ },
+ {"tag": "about",
+  "patterns": ["Who are you?", "What are you?", "Who you are?", "Tell me more about yourself.", "What is your name?", "What should I call you?", "What's your name?", "Tell me about yourself","name","who" ],
+  "responses": ["I'm ShopGPT, your Personal Shopping Assistant. What do you want to buy today", "I'm ShopGPT, a Shopping Assitant designed to assist you. Tell me which product is on your mind.", "I'm ShopGPT. I am a conversational agent designed to mimic ashopping assistant. What are you looking for today?", "You can call me ShopGPT.", "I'm ShopGPT!", "Call me ShopGPT"]
+ },
+ {"tag": "skill",
+     "patterns": ["What can you do?"],
+     "responses": ["I'm your shopping assistant here to help you find products, provide information, and assist with your shopping needs. Please feel free to ask me about products, prices, availability, and more."]
+ },
+ {"tag": "creation",
+     "patterns": ["Who created you?", "How were you made?", "How were you created?","create","created"],
+     "responses": ["I was created by >.", "I was trained on a text dataset using Deep Learning & Natural Language Processing techniques", "The real question is: Who created you?"]
+ },
+    {
+      "tag": "product_inquiry",
+      "patterns": ["tell me about {product}", "what can you tell me about {product}","want","show","buy","display","find"],
+      "responses": ["Here are some results for your search"]
+    },
+ 
+    {
+      "tag": "fallback",
+      "patterns": [],
+      "responses": ["I'm sorry, I'm not sure how to help with that."]
+    }
+  ]
+  

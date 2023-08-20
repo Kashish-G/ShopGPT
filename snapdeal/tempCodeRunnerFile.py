@@ -1,0 +1,1 @@
+ i.get_text()
